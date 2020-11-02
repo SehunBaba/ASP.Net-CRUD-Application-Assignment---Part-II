@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Records>
+
+@{
+    Layout = "_Layout";
+    var title = "Read Records";
+    ViewData["Title"] = title;
+}
+
+<h2>@title</h2>
+<h3><a asp-action="Create" class="btn btn-sm btn-secondary">Create</a></h3>
+
+<table class="table table-bordered table-sm table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Doctor</th>
+            <th>Medication</th>
+            <th>Added On</th>
+            <th>Pickup Date</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model == null)
+        {
+            <tr>
+                <td colspan="7" class="text-center">No Data received </td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.Id</td>
+                    <td>@p.FirstName</td>
+                    <td>@p.LastName</td>
+                    <td>@p.Email</td>
+                    <td>@p.Doctor</td>
+                    <td>@p.Medication</td>
+                    <td>@string.Format("{0:dddd, dd MMMM yyyy}", p.AddedOn)</td>
+                    <td>@string.Format("{0:dddd, dd MMMM yyyy}", p.PickupDate)</td>
+                    <td><a asp-action="Update" asp-route-id="@p.Id">Update</a></td>
+                    <td>
+                        <form asp-action="Delete" method="post" asp-route-id="@p.Id">
+                            <button>Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Logout">Logout</a>
+</div>

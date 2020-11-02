@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "_Layout";
+    var title = "Incorrect details";
+    ViewData["Title"] = title;
+}
+
+<style>
+    .p {
+        color : red;
+    }
+</style>
+
+
+<p>Incorrect Details! </p>
+
+<div>
+    <a asp-action="Login">Please try again.</a>
+</div>
+
+<div>
+    <a asp-action="Register">Don't have an account? - Register</a>
+</div>

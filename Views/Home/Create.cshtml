@@ -1,0 +1,75 @@
+﻿@model DatabaseAssignmentPart2.Models.Records
+
+@{
+    Layout = "_Layout";
+    var title = "Create Record";
+    ViewData["Title"] = title;
+}
+
+<style>
+    .input-validation-error {
+        border-color: red;
+    }
+</style>
+
+
+<h2>@title</h2>
+<hr />
+<div class="form-group">
+
+    <form class="m-1 p-1" asp-action="CreateRecord">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName" type="text" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" type="email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="Doctor"></label>
+            <input asp-for="Doctor" type="text" class="form-control" />
+            <span asp-validation-for="Doctor" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Medication"></label>
+            <input asp-for="Medication" type="text" class="form-control" />
+            <span asp-validation-for="Medication" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PickupDate"></label>
+            <input asp-for="PickupDate" type="date" class="form-control" />
+            <span asp-validation-for="PickupDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+@*JQuery for client side validation*@ 
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+
+<div>
+    <a asp-action="Index">Back to list of Prescriptions</a>
+</div>
+
